@@ -1,74 +1,67 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">New developer</h4>
-                      <p class="card-category">Complete your profile</p>
-                  </div>
-                  <div class="card-body">
-                      <form>
-                          <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Startup (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="main city (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                          </div>
-
-                          <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Name" type="text">
-                                </mat-form-field>
-                              </div>
-                              
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Email address" type="email">
-                                </mat-form-field>
-                              </div>
-
-                              <div class="col-sm-2">
-                                <mat-form-field appearance="fill">
-                                  <mat-label>Genre</mat-label>
-                                  <select matNativeControl required>
-                                    <option value="m">M</option>
-                                    <option value="f">F</option>
-                                  </select>
-                                </mat-form-field>
-                              </div>
-
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-info pull-right">Add</button>
-                          <div class="clearfix"></div>
-                      </form>
-                  </div>
-              </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">New developer</h4>
+            <p class="card-category">Complete your profile</p>
           </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-sm-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>"Startup"</mat-label>
+                    <select matNativeControl="matNativeControl" required="required">
+                      <option value="Tech4Toy">Tech4Toy</option>
+                      <option value="Smart123">Smart123</option>
+                      <option value="knowledgeUp">knowledgeUp</option>
+                      <option value="BSI Next Level">BSI Next Level</option>
+                      <option value="QualiHealth">QualiHealth</option>
+                      <option value="ProEdu">ProEdu</option>
+                    </select>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>"Programming Language"</mat-label>
+                    <select matNativeControl="matNativeControl" required="required">
+                      <option value="Python">Python</option>
+                      <option value="PHP">PHP</option>
+                      <option value="Java">Java</option>
+                      <option value="C">C</option>
+                      <option value="JavaScript">JavaScript</option>
+                      <option value="Dart">Dart</option>
+                    </select>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Genre</mat-label>
+                    <select matNativeControl="matNativeControl" required="required">
+                      <option value="m">M</option>
+                      <option value="f">F</option>
+                    </select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <mat-form-field class="example-full-width">
+                    <input matInput="matInput" placeholder="Name" type="text"></mat-form-field>
+                  </div>
+                  <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                      <input matInput="matInput" placeholder="Email address" type="email"></mat-form-field>
+                    </div>
+                    </div>
+                    <button mat-raised-button="mat-raised-button" type="submit" class="btn btn-info pull-right">Add</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-</div>
