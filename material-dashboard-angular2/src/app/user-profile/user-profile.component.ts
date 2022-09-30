@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { Programador } from 'app/components/programador.model';
 
 @Component({
   selector: 'app-user-profile',   
@@ -8,7 +8,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private matDate: MatDatepickerModule) { }
+  programador: Programador = {
+    nome_programador: '',
+    genero: '',
+    data_nascimento: '',
+    email: ''
+  };
+
+  constructor() { }
 
   ngOnInit() {
   }
