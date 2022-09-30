@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes =[
   {
@@ -24,6 +24,7 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
+    MatFormFieldModule,
     RouterModule.forRoot(routes,{
        useHash: true
     })

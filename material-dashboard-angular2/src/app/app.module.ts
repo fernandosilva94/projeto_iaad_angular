@@ -7,7 +7,9 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { ApiserviceService } from './apiservice.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -18,13 +20,15 @@ import { ApiserviceService } from './apiservice.service';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
-  providers: [ApiserviceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
