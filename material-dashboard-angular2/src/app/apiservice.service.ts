@@ -20,4 +20,13 @@ export class ApiserviceService {
         return this._http.get(`${this.apiUrl}`);
     }
 
+    //create
+
+    createData(data:any):Observable<any>
+    {
+      console.log(data, 'createapi==>');
+
+      return this._http.post(`${this.apiUrl}`,data);
+    }
+
 }

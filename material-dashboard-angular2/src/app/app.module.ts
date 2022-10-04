@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ApiserviceService } from './apiservice.service';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppComponent,
     AdminLayoutComponent,
   ],
-  providers: [],
+  providers: [ApiserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
