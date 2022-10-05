@@ -8,21 +8,22 @@
             <p class="card-category">Complete your profile</p>
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="userForm" (ngSubmit)="userSubmit()">
               <div class="row">
                 <div class="col-sm-4">
                   <mat-form-field appearance="fill">
                     <mat-label>"Startup"</mat-label>
                     <select
                       matNativeControl="matNativeControl"
+                      formControlName="id_startup"
                       required="required"
                     >
-                      <option value="Tech4Toy">Tech4Toy</option>
-                      <option value="Smart123">Smart123</option>
-                      <option value="knowledgeUp">knowledgeUp</option>
-                      <option value="BSI Next Level">BSI Next Level</option>
-                      <option value="QualiHealth">QualiHealth</option>
-                      <option value="ProEdu">ProEdu</option>
+                      <option value="10001">Tech4Toy</option>
+                      <option value="10002">Smart123</option>
+                      <option value="10003">knowledgeUp</option>
+                      <option value="10004">BSI Next Level</option>
+                      <option value="10005">QualiHealth</option>
+                      <option value="10006">ProEdu</option>
                     </select>
                   </mat-form-field>
                 </div>
@@ -31,14 +32,15 @@
                     <mat-label>"Programming Language"</mat-label>
                     <select
                       matNativeControl="matNativeControl"
+                      formControlName="id_linguagem"
                       required="required"
                     >
-                      <option value="Python">Python</option>
-                      <option value="PHP">PHP</option>
-                      <option value="Java">Java</option>
-                      <option value="C">C</option>
-                      <option value="JavaScript">JavaScript</option>
-                      <option value="Dart">Dart</option>
+                      <option value="30001">Python</option>
+                      <option value="30002">PHP</option>
+                      <option value="30003">Java</option>
+                      <option value="30004">C</option>
+                      <option value="30005">JavaScript</option>
+                      <option value="30006">Dart</option>
                     </select>
                   </mat-form-field>
                 </div>
@@ -47,6 +49,7 @@
                     <mat-label>Genre</mat-label>
                     <select
                       matNativeControl="matNativeControl"
+                      formControlName="genero"
                       required="required"
                     >
                       <option value="m">M</option>
@@ -58,7 +61,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput="matInput" placeholder="Name" type="text"
+                    <input matInput="matInput" formControlName="nome_programador" placeholder="Name" type="text"
                   /></mat-form-field>
                 </div>
                 <div class="col-md-4">
@@ -67,12 +70,13 @@
                       matInput="matInput"
                       placeholder="Email address"
                       type="email"
+                      formControlName="email"
                   /></mat-form-field>
                 </div>
                   <div class="col-sm-3">
                     <mat-form-field appearance="fill">
                         <mat-label>Choose a date</mat-label>
-                        <input matInput placeholder="Data de nascimento" [(ngModel)]="programador.data_nascimento" name="data_nascimento" type="date"/>
+                        <input matInput formControlName="data_nascimento" placeholder="Data de nascimento" [(ngModel)]="programador.data_nascimento" name="data_nascimento" type="date"/>
                         <mat-hint>MM/DD/YYYY</mat-hint>
                     </mat-form-field>
                   </div>
