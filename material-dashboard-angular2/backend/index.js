@@ -102,7 +102,7 @@ app.post('/programador',(req,res)=>{
         if(err){console.log(err);}
         console.log(result,'result');
         res.send({
-            massage:'Dados inseridos'
+            message:'Dados inseridos'
         });
     })
 })

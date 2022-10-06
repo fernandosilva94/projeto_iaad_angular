@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Programador } from 'app/components/programador.model';
 import {ApiserviceService} from '../apiservice.service';
+import {ActivatedRoute} from '@angular/router'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',   
@@ -17,9 +19,25 @@ export class UserProfileComponent implements OnInit {
     email: ''
   };
 
-  constructor(private service:ApiserviceService) { }
+  constructor(private service:ApiserviceService, private router:ActivatedRoute) { }
 
-  ngOnInit() {
+  errormsg:any;
+  successmsg:any;
+  getparamid:any;
+
+
+  ngOnInit(): void{
+      this.getparamid = this.router.snapshot.paramMap.get('id');
+      this.service.getSingleData(this.getparamid).subscribe((res)=>{
+          console.log(res,'res==>');
+          this.userForm.patchValue({
+              id_startup:res.data[0].id_startup,
+              nome_programador:res.data[0].nome_programador,
+              genero:res.data[0].genero,
+              data_nascimento:res.data[0].data_nascimento,
+              email:res.data[0].email
+          });
+      });
   }
 
   userForm = new FormGroup({
@@ -31,21 +49,37 @@ export class UserProfileComponent implements OnInit {
     'email': new FormControl('',Validators.required)
   });
 
-  userSubmit(){
-
-    this.service.createData(this.userForm.value).subscribe((res)=>{
-      console.log(res,'res==>')
-    })
-    /*if(this.userForm.valid)
+  //create new user
+  userSubmit()
+  {
+    if(this.userForm.valid)
     {
-      console.log(this.userForm.value);
+      this.service.createData(this.userForm.value).subscribe((res)=>{
+        console.log(res,'res==>');
+        //this.userForm.reset();
+        this.successmsg = res.message;
+      });
     }
     else
     {
-      this.errormsg = "all field is required"; 
-    }*/
+      this.errormsg = "Preencha todos os campos"; 
+    }
   }
 
+  //update user
+  userUpdate(){
+
+      if(this.userForm.valid)
+      {
+        this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
+            this.successmsg = res.message;
+        });
+      }
+      else 
+      {
+        this.errormsg = "Preencha todos os campos"; 
+      }
+  }
 
   
 
