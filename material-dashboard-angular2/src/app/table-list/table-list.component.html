@@ -1,5 +1,13 @@
 <div class="main-content">
   <div class="container-fluid">
+
+    <!-- Showmessage -->
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
       <div class="row">
           <div class="col-md-12">
               <div class="card">
@@ -28,7 +36,10 @@
                                   </th>
                                   <th>
                                       Email
-                                  </th>                                  
+                                  </th>
+                                  <th>
+                                    Edit
+                                  </th>                                    
                               </thead>
                               <tbody>
                                   <tr *ngFor="let us of readData">
@@ -49,7 +60,14 @@
                                       </td>
                                       <td>
                                           {{us.email}}
-                                    </td>                                      
+                                      </td>
+                                      <td>
+                                        <button class="btn btn-sm btn-danger" (click)="deleteID(us.id_programador)">Delete</button>
+                                        &nbsp;
+                                        <a [routerLink]="['/user-profile',us.id_programador]" class="btn btn-sm btn-success">
+                                          Update
+                                        </a>
+                                    </td>                                        
                                   </tr>
                               </tbody>
                           </table>
