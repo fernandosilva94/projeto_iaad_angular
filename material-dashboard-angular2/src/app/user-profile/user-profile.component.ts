@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Programador } from 'app/components/programador.model';
 import {ApiserviceService} from '../apiservice.service';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router'
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
     email: ''
   };
 
-  constructor(private service:ApiserviceService, private router:ActivatedRoute) { }
+  constructor(private service:ApiserviceService, private router:ActivatedRoute,private route:Router) { }
 
   errormsg:any;
   successmsg:any;
@@ -73,7 +73,8 @@ export class UserProfileComponent implements OnInit {
       {
         this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
             this.successmsg = res.message;
-        });
+            //this.route.navigate(['/table-list']);
+          });
       }
       else 
       {
