@@ -128,7 +128,7 @@ app.put('/programador/:id',(req,res)=>{
         if(err) {console.log(err);}
 
         res.send({
-            message:'data update'
+            message:'Dados Atualizados'
         });
     })
 })
@@ -155,7 +155,7 @@ app.delete('/programador/:id',(req,res)=>{
 
         res.send(
             {
-                message:'data deleted'
+                message:'Dados Deletados'
             }
         )
     })

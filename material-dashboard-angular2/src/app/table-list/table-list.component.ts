@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { time } from 'console';
 import { ApiserviceService } from '../apiservice.service';
 
 @Component({
@@ -27,6 +28,7 @@ export class TableListComponent implements OnInit {
     this.service.deleteData(id).subscribe((res)=>{
       console.log(res,"deleteres==>");
       this.successmsg = res.message;
+      location.reload();
     });
   }
 
