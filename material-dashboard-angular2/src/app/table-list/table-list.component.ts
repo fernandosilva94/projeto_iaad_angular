@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { time } from 'console';
 import { ApiserviceService } from '../apiservice.service';
 
 @Component({
