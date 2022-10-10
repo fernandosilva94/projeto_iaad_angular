@@ -146,15 +146,18 @@ app.put('/programador/:id',(req,res)=>{
 
     console.log(req.body,'updatedata');
 
-    let gID = req.params.id;
+    // let gID = req.params.id;
+    let id_linguagem = req.body.id_linguagem;
     let id_startup = req.body.id_startup;
     let nome_programador = req.body.nome_programador;
     let genero = req.body.genero;
     let data_nascimento = req.body.data_nascimento;
     let email = req.body.email;
     
-    let qr = `update programador set id_startup = '${id_startup}', nome_programador =  '${nome_programador}', genero = '${genero}', data_nascimento = '${data_nascimento}', email = '${email}'
-            where id_programador = '${gID}'`;
+    // let qr = `update programador set id_startup = '${id_startup}', nome_programador =  '${nome_programador}', genero = '${genero}', data_nascimento = '${data_nascimento}', email = '${email}'
+    //         where id_programador = '${gID}'`;
+
+    let qr = `CALL STP_UPDATE_PROG_LINGUAGEM ('${id_linguagem}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}', '${email}')`;
 
     db.query(qr,(err,result)=>{
         
