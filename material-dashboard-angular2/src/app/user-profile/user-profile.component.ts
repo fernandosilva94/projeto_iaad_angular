@@ -24,9 +24,19 @@ export class UserProfileComponent implements OnInit {
   errormsg:any;
   successmsg:any;
   getparamid:any;
+  readlinguagem:any;
+  readStartup:any;
 
 
   ngOnInit(): void{
+      this.service.getAllLinguagem().subscribe((res)=>{
+        console.log(res,"res==>");
+        this.readlinguagem = res.data;
+      });
+      this.service.getAllstartup().subscribe((res)=>{
+        console.log(res,"res==>");
+        this.readStartup = res.data;
+      });
       this.getparamid = this.router.snapshot.paramMap.get('id');
       this.service.getSingleData(this.getparamid).subscribe((res)=>{
           console.log(res,'res==>');
@@ -59,6 +69,9 @@ export class UserProfileComponent implements OnInit {
         //this.userForm.reset();
         this.successmsg = res.message;
       });
+      // debugando dados tabela programador linguagem
+      /*console.log(this.userForm.value.id_startup);
+      console.log(this.userForm.value.id_linguagem);*/
     }
     else
     {
