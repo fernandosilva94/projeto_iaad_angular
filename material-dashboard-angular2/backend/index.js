@@ -2,7 +2,6 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const cors =  require('cors');
 const mysql = require('mysql2');
-
 const app = express();
 
 app.use(cors());
@@ -18,19 +17,12 @@ const db = mysql.createConnection({
     port:3306
 });
 
-
-
 // check database connection
 
 db.connect(err=>{
     if (err) {console.log('err');}
     console.log('database conected...')
 })
-
-
-/*db.query(`SELECT programador FROM startup WHERE nome_programador = 'Paula Silva'`, function(err, tables){ 
-    console.log(tables);
-});*/
 
 // get all data
 
@@ -137,7 +129,6 @@ app.post('/programador',(req,res)=>{
     let data_nascimento = req.body.data_nascimento;
     let email = req.body.email;
 
-    // let qr = `insert into programador(id_programador, id_startup, nome_programador, genero, data_nascimento, email) values ('${id_programador}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}','${email}')`;
     let qr = `CALL STP_INSERT_PROG_LINGUAGEM ('${id_linguagem}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}', '${email}')`;
 
     db.query(qr,(err,result)=>{
@@ -175,18 +166,6 @@ app.put('/programador/:id',(req,res)=>{
     })
 })
 
-// Teste no Postman - Selecione Get(retorno), Post(adicionar informações), Put(atualizar), Delete
-// Body -> raw -> Json e pode começar a testar.
-/*
-{
-    "id_startup":"10003",
-    "nome_programador":"tim",
-    "genero":"F",
-    "data_nascimento":"1996-06-12",
-    "email":"timsilva@mail.com"
-}
-*/
-
 app.delete('/programador/:id',(req,res)=>{
     
     let qID = req.params.id;
@@ -202,8 +181,6 @@ app.delete('/programador/:id',(req,res)=>{
         )
     })
 })
-
-
 
 app.listen(3000,()=>{
     console.log("server running...");
