@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-warning">
                         <h4 class="card-title">Developer</h4>
@@ -50,35 +50,21 @@
                     <div class="card-body table-responsive">
                         <table class="table table-hover">
                             <thead class="text-warning">
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Salary</th>
-                                <th>Country</th>
+                                <th>ID Programador</th>
+                                <th>ID Startup</th>
+                                <th>Nome</th>
+                                <th>Gênero</th>
+                                <th>Data de Nascimento</th>
+                                <th>E-mail</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>$36,738</td>
-                                    <td>Niger</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>$23,789</td>
-                                    <td>Curaçao</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Sage Rodriguez</td>
-                                    <td>$56,142</td>
-                                    <td>Netherlands</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Philip Chaney</td>
-                                    <td>$38,735</td>
-                                    <td>Korea, South</td>
+                                <tr *ngFor="let us of readeveloper">
+                                    <td>{{us.id_programador}}</td>
+                                    <td>{{us.id_startup}}</td>
+                                    <td>{{us.nome_programador}}</td>
+                                    <td>{{us.genero}}</td>
+                                    <td>{{us.data_nascimento | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{us.email}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -86,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-warning">
                         <h4 class="card-title">Startup</h4>
@@ -96,33 +82,13 @@
                             <thead class="text-warning">
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Salary</th>
-                                <th>Country</th>
+                                <th>City</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>$36,738</td>
-                                    <td>Niger</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>$23,789</td>
-                                    <td>Curaçao</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Sage Rodriguez</td>
-                                    <td>$56,142</td>
-                                    <td>Netherlands</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Philip Chaney</td>
-                                    <td>$38,735</td>
-                                    <td>Korea, South</td>
+                                <tr *ngFor="let us of readStartup">
+                                    <td>{{us.id_startup}}</td>
+                                    <td>{{us.nome_startup}}</td>
+                                    <td>{{us.cidade_sede}}</td>
                                 </tr>
                             </tbody>
                         </table>
