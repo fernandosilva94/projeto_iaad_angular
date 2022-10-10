@@ -130,16 +130,15 @@ app.post('/programador',(req,res)=>{
 
     console.log(req.body,'add dados');
 
-    let id_programador = req.body.id_programador;
+    let id_linguagem = req.body.id_linguagem;
     let id_startup = req.body.id_startup;
-    // let id_linguagem = req.body.id
     let nome_programador = req.body.nome_programador;
     let genero = req.body.genero;
     let data_nascimento = req.body.data_nascimento;
     let email = req.body.email;
-    let id_linguagem = req.body.id_linguagem
 
-    let qr = `insert into programador(id_programador, id_startup, nome_programador, genero, data_nascimento, email) values ('${id_programador}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}','${email}')`;
+    // let qr = `insert into programador(id_programador, id_startup, nome_programador, genero, data_nascimento, email) values ('${id_programador}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}','${email}')`;
+    let qr = `CALL STP_INSERT_PROG_LINGUAGEM ('${id_linguagem}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}', '${email}')`;
 
     db.query(qr,(err,result)=>{
         if(err){console.log(err);}
