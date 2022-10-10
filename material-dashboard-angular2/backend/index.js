@@ -146,9 +146,7 @@ app.put('/programador/:id',(req,res)=>{
 
     console.log(req.body,'updatedata');
 
-    let getIdProgramador = req.params.id;
     let id_linguagem = req.body.id_linguagem;
-    let nome_linguagem = req.body.nome_linguagem;
     let id_startup = req.body.id_startup;
     let nome_programador = req.body.nome_programador;
     let genero = req.body.genero;
