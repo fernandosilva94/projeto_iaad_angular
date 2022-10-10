@@ -53,6 +53,48 @@ app.get("/programador",(req,res)=>{
     })
 });
 
+// get all data linguagem
+
+app.get("/linguagem_programacao",(req,res)=>{
+
+    let qr = `select * from linguagem_programacao`;
+    db.query(qr,(err,result)=>{
+        if(err)
+        {
+            console.log(err,'errs');
+        }
+
+        if(result.length>0)
+        {
+            res.send({
+                message:'all user data',
+                data:result
+            });
+        }
+    })
+});
+
+// get all data startup
+
+app.get("/startup",(req,res)=>{
+
+    let qr = `select * from startup`;
+    db.query(qr,(err,result)=>{
+        if(err)
+        {
+            console.log(err,'errs');
+        }
+
+        if(result.length>0)
+        {
+            res.send({
+                message:'all user data',
+                data:result
+            });
+        }
+    })
+});
+
 //get single data
 
 app.get("/programador/:id",(req,res)=>{
@@ -94,9 +136,9 @@ app.post('/programador',(req,res)=>{
     let genero = req.body.genero;
     let data_nascimento = req.body.data_nascimento;
     let email = req.body.email;
+    let id_linguagem = req.body.id_linguagem
 
-    let qr = `insert into programador(id_programador, id_startup, nome_programador, genero, data_nascimento, email) 
-                values ('${id_programador}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}','${email}')`;
+    let qr = `insert into programador(id_programador, id_startup, nome_programador, genero, data_nascimento, email) values ('${id_programador}', '${id_startup}', '${nome_programador}', '${genero}', '${data_nascimento}','${email}')`;
 
     db.query(qr,(err,result)=>{
         if(err){console.log(err);}

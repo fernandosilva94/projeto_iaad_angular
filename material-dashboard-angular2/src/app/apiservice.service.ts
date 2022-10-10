@@ -12,12 +12,28 @@ export class ApiserviceService {
     // connect frontend to backend
 
     apiUrl = 'http://localhost:3000/programador';
+    apiUrlLinguagem = 'http://localhost:3000/linguagem_programacao';
+    apiUrlStartup = 'http://localhost:3000/startup';
 
     // get all data
 
     getAllData():Observable<any>
     {
         return this._http.get(`${this.apiUrl}`);
+    }
+
+    // get all data linguagem
+
+    getAllLinguagem():Observable<any>
+    {
+        return this._http.get(`${this.apiUrlLinguagem}`);
+    }
+
+    // get all data linguagem
+
+    getAllstartup():Observable<any>
+    {
+        return this._http.get(`${this.apiUrlStartup}`);
     }
 
     //create

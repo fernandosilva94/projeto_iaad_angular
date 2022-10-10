@@ -32,12 +32,7 @@
                       formControlName="id_startup"
                       required="required"
                     >
-                      <option value="10001">Tech4Toy</option>
-                      <option value="10002">Smart123</option>
-                      <option value="10003">knowledgeUp</option>
-                      <option value="10004">BSI Next Level</option>
-                      <option value="10005">QualiHealth</option>
-                      <option value="10006">ProEdu</option>
+                      <option *ngFor="let us of readStartup" value={{us.id_startup}}>{{us.nome_startup}}</option>
                     </select>
                   </mat-form-field>
                 </div>
@@ -49,12 +44,7 @@
                       formControlName="id_linguagem"
                       required="required"
                     >
-                      <option value="30001">Python</option>
-                      <option value="30002">PHP</option>
-                      <option value="30003">Java</option>
-                      <option value="30004">C</option>
-                      <option value="30005">JavaScript</option>
-                      <option value="30006">Dart</option>
+                      <option *ngFor="let us of readlinguagem" value={{us.id_linguagem}}>{{us.nome_linguagem}}</option>
                     </select>
                   </mat-form-field>
                 </div>
